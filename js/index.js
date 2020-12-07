@@ -10,7 +10,6 @@ async function start() {
   ip = ip["ip"];
   console.log(ip);
 
-
   var chararray = ip.split("");
   var ip_html = document.getElementById("ip");
   ip_html.innerHTML = "";
