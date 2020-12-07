@@ -1,0 +1,20 @@
+{
+  "name": "ip_melody",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "lite": "lite-server --port 10001",
+    "start": "npm run lite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "-": "0.0.1",
+    "tone": "^14.7.58"
+  }
+}
