@@ -81,7 +81,7 @@ function getSound(num) {
   }
 }
 
-// play button 
+// play button
 var welcomeText = document.getElementById("welcome-text");
 
 document.querySelector("#play")?.addEventListener("click", async () => {
@@ -89,7 +89,6 @@ document.querySelector("#play")?.addEventListener("click", async () => {
   welcomeText.innerHTML = "";
   start();
 });
-
 
 // set up tones
 var s_zero = new Tone.AMSynth().toDestination();
