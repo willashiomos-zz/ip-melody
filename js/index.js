@@ -101,3 +101,12 @@ var s_six = new Tone.MonoSynth().toDestination();
 var s_seven = new Tone.Synth().toDestination();
 var s_eight = new Tone.PolySynth().toDestination();
 var s_nine = new Tone.FMSynth().toDestination();
+
+$(document).ready(function() {
+  $(document).on('mousemove', function(e) {
+    $('#cursor').css({
+      left: e.pageX,
+      top: e.pageY
+    });
+  })
+});
