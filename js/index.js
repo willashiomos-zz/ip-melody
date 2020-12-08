@@ -1,4 +1,4 @@
-import "../node_modules/tone/build/Tone.js";
+import "./Tone.js";
 
 async function getIP() {
   let response = await fetch("https://api.ipify.org/?format=json");
