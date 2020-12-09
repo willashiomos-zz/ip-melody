@@ -11,12 +11,13 @@ async function start() {
   console.log(ip);
 
   var chararray = ip.split("");
+
+  var numarray = ip.split(".");
+  var numarray = numarray.map((x) => parseInt(x));
+  setColors(numarray);
+
   var ip_html = document.getElementById("ip");
   ip_html.innerHTML = "";
-
-  function isOdd(num) {
-    return num % 2;
-  }
 
   var length = chararray.length;
 
@@ -37,12 +38,14 @@ async function start() {
       if (cur != ".") {
         sound = getSound(cur);
 
-        if (isOdd(length)) {
+        if (length % 2) {
           setTimeout(function () {
             sound.triggerAttackRelease(i * 100, "7n");
           }, 100);
         } else {
-          sound.triggerAttackRelease(i * 100, "1n");
+          setTimeout(function () {
+            sound.triggerAttackRelease(i * 100, "9n");
+          }, 100);
         }
       } else {
         setTimeout(100);
@@ -102,11 +105,58 @@ var s_seven = new Tone.Synth().toDestination();
 var s_eight = new Tone.PolySynth().toDestination();
 var s_nine = new Tone.FMSynth().toDestination();
 
-$(document).ready(function() {
-  $(document).on('mousemove', function(e) {
-    $('#cursor').css({
+$(document).ready(function () {
+  $(document).on("mousemove", function (e) {
+    $("#cursor").css({
       left: e.pageX,
-      top: e.pageY
+      top: e.pageY,
     });
-  })
+  });
+
+  $(".question-hover").on("mouseover", function (e) {
+    $(".question-text").css({
+      display: "inline",
+    });
+  });
+
+  $(".question-hover").on("mouseout", function (e) {
+    $(".question-text").css({
+      display: "none",
+    });
+  });
 });
+
+function setColors(numarray) {
+  var color_arr = [];
+  numarray.forEach((num) => {
+    if (num < 42) {
+      color_arr.push("#ECBFBF");
+    } else if (num < 85) {
+      color_arr.push("#FDE9CA");
+    } else if (num < 127) {
+      color_arr.push("#F8F1B1");
+    } else if (num < 170) {
+      color_arr.push("#D1E8BF");
+    } else if (num < 212) {
+      color_arr.push("#BFDEE8");
+    } else {
+      color_arr.push("#C7BFE8");
+    }
+  });
+
+  $(".blob1").css({
+    fill: color_arr[0],
+  });
+
+  $(".blob2").css({
+    fill: color_arr[1],
+  });
+
+  $(".blob3").css({
+    fill: color_arr[2],
+  });
+
+  $(".blob3").css({
+    fill: color_arr[3],
+  });
+}
